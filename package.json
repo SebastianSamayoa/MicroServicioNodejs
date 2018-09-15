@@ -1,0 +1,19 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "description": "pruebas para configuracion de cliente en microservicios",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jhoan Samayoa",
+  "license": "ISC",
+  "dependencies": {
+    "cloud-config-client": "^1.4.2",
+    "eureka-js-client": "^4.4.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.14",
+    "mysql": "^2.15.0",
+    "request": "^2.88.0"
+  }
+}
