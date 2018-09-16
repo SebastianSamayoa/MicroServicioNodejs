@@ -1,41 +1,32 @@
-const cliente = require("cloud-config-client");
-const mysql = require('mysql');
+//importando modulos principales
+var express = require('express');
+var bodyParser = require('body-parser');
+var basedatos = require('./mongo/mongo');
 
-var url;
-var puerto;
-var usuario;
-var contrasenia;
+// importando rutas
+var appRoutes = require('./routes/app');
+var userRoutes = require('./routes/usuario');
 
-cliente.load({
-    endpoint: 'http://192.168.43.18:5010',
-    application: "demo",
-    context: process.env
-}).then((config) => {
-    //console.log(config.get("mensaje"));
-    url = config.get("mysql.url");
-    puerto = config.get("mysql.port");
-    usuario = config.get("spring.datasource.username");
-    contrasenia = config.get("spring.datasource.password");
-    mysqlconect();
-    //config.forEach((key, value) => console.log(value));
-}).catch(console.error);
+//Iniciando variables
+var app = express();
+//Definindo puerto
+var puertonode = 3000;
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
-function mysqlconect() {
-    var conexion = mysql.createConnection({
-        host: url,
-        user: usuario,
-        password: '123456',
-        port: puerto
 
-    });
+//levantando el servidor
+app.listen(puertonode, (err, res)=>{
+    if (err) {
+        throw err;
+    }
+    console.log(basedatos);
+    console.log('Servidor Corriendo');
+});
 
-    conexion.connect(function(error) {
-        if (error) {
-            throw error;
-        } else {
-            console.log('Conexion correcta.');
-        }
-    });
-    conexion.end();
+//usando los middelware
+app.use('/usuario', userRoutes);
+app.use('/', appRoutes);
 
-}

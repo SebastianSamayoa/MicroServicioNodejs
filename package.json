@@ -4,11 +4,13 @@
   "description": "pruebas para configuracion de cliente en microservicios",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jhoan Samayoa",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cloud-config-client": "^1.4.2",
     "eureka-js-client": "^4.4.1",
     "express": "^4.16.3",

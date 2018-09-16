@@ -16,7 +16,7 @@ function porteureka(direccion){
 }
 
 function urleureka(direccion){
-    var url = direccion.substring(7,19);
+    var url = direccion.substring(7,21);
     return url;
 }
 
