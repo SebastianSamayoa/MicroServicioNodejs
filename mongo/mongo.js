@@ -1,10 +1,6 @@
 var Configuraciones = require('../configuraciones/configuracion');
 var mongoose = require('mongoose');
 
-var mongourl;
-var mongopuerto;
-var mongousuario;
-var mongocontrasenia;
 var datos;
 
 async function RecuperaConfiguraciones(){

@@ -2,6 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var basedatos = require('./mongo/mongo');
+var eureka = require('./eureka/eureka');
 
 // importando rutas
 var appRoutes = require('./routes/app');
@@ -32,6 +33,7 @@ app.listen(puertonode, (err, res)=>{
         throw err;
     }
     console.log(basedatos);
+    console.log(eureka);
     console.log('Servidor Corriendo');
 });
 
