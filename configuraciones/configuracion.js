@@ -11,17 +11,17 @@ function portmysql(direccion){
 }
 
 function porteureka(direccion){
-    var port = direccion.substring(22,26);
+    var port = direccion.substring(23,27);
     return port;
 }
 
 function urleureka(direccion){
-    var url = direccion.substring(7,21);
+    var url = direccion.substring(7,22);
     return url;
 }
 
 module.exports= cliente.load({
-    endpoint: 'http://192.168.28.135:5010',
+    endpoint: 'http://192.168.204.136:5010',
     application: "demo",
     context: process.env
 }).then((config) => {
